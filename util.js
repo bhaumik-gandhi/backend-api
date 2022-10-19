@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const csv = require('fast-csv');
+const format = require('date-format');
 
 const getCSVData = () => {
   const data = [];
@@ -17,4 +18,8 @@ const getCSVData = () => {
   });
 };
 
-module.exports = { getCSVData };
+const getFormatDate = (date) => {
+  return format.asString('MM/dd/yyyy', new Date(date));
+};
+
+module.exports = { getCSVData, getFormatDate };
